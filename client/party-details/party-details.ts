@@ -1,7 +1,7 @@
 import {Component, View} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 import {Parties} from 'collections/parties';
- 
+
 @Component({
   selector: 'party-details'
 })
@@ -17,9 +17,9 @@ export class PartyDetails {
 		this.party = Parties.findOne(partyId);
 	}
 
-	saveParty(party) {
+	saveParty(party: Party) {
 		Parties.update(party._id, {
-			$set: { 	
+			$set: {
 				name: party.name,
 				description: party.description,
 				location: party.location
