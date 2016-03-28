@@ -1,6 +1,44 @@
 {
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "classic",
+    "experimentalDecorators": true
+  },
+  "filesGlob": [
+    "**/*.ts"
+  ],
   "files": [
+    "client/app.ts",
+    "client/parties-form/parties-form.ts",
+    "client/parties-list/parties-list.ts",
+    "client/party-details/party-details.ts",
+    "collections/parties.ts",
+    "server/load-parties.ts",
+    "server/main.ts",
+    "typings/angular2-meteor/angular2-meteor.d.ts",
+    "typings/angular2/angular2.d.ts",
+    "typings/angular2/common_amb.d.ts",
+    "typings/angular2/common.d.ts",
+    "typings/angular2/core_amb.d.ts",
+    "typings/angular2/core.d.ts",
+    "typings/angular2/platform/browser_amb.d.ts",
+    "typings/angular2/platform/browser.d.ts",
+    "typings/angular2/router_amb.d.ts",
+    "typings/angular2/router.d.ts",
+    "typings/browser.d.ts",
+    "typings/browser/ambient/es6-promise/index.d.ts",
+    "typings/browser/ambient/es6-shim/index.d.ts",
+    "typings/browser/ambient/meteor/index.d.ts",
     "typings/main.d.ts",
-    "typings/angular2-meteor/angular2-meteor.d.ts"
+    "typings/main/ambient/es6-promise/index.d.ts",
+    "typings/main/ambient/es6-shim/index.d.ts",
+    "typings/main/ambient/meteor/index.d.ts",
+    "typings/party.d.ts"
   ]
 }

@@ -10,7 +10,7 @@ import {Parties} from 'collections/parties';
   directives: [ROUTER_DIRECTIVES]
 })
 export class PartyDetails {
-	party: Object;
+	party: Party;
 
 	constructor(params: RouteParams) {
 		var partyId = params.get('partyId');
