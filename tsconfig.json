@@ -39,6 +39,7 @@
     "typings/main/ambient/es6-promise/index.d.ts",
     "typings/main/ambient/es6-shim/index.d.ts",
     "typings/main/ambient/meteor/index.d.ts",
+    "typings/ng2-meteor-accounts-ui/ng2-meteor-accounts-ui.d.ts",
     "typings/party.d.ts"
   ]
 }
