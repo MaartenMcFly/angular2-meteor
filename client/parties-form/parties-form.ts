@@ -1,16 +1,17 @@
 import {Component, View} from 'angular2/core';
-import {FormBuilder, ControlGroup, Validators} from 'angular2/common';
+import {FormBuilder, Control, ControlGroup, Validators} from 'angular2/common';
+import {Parties} from 'collections/parties';
 
 @Component({
     selector: 'parties-form'
 })
 
 @View({
-    templateUrl: '/client/parties-form/parties-form.html'
+    templateUrl: './client/parties-form/parties-form.html'
 })
 
 export class PartiesForm { 
-	partiesForm:ControlGroup;
+	partiesForm: ControlGroup;
 
 	constructor() {
 		var fb = new FormBuilder();
@@ -21,4 +22,22 @@ export class PartiesForm {
 			location: ['', Validators.required]
 		});
 	}
-}
+
+	addParty(party) {
+		if (this.partiesForm.valid) {
+			console.log("Form is valid");
+			Parties.insert({
+				name: party.name,
+				description: party.description,
+				location: party.location
+			});
+
+			(<Control>this.partiesForm.controls['name']).updateValue('');
+            		(<Control>this.partiesForm.controls['description']).updateValue('');
+            		(<Control>this.partiesForm.controls['location']).updateValue('');
+		} else {
+			console.log("Form not valid.");
+		}
+	}
+
+}	
