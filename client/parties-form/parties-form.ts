@@ -10,12 +10,12 @@ import {Parties} from 'collections/parties';
     templateUrl: './client/parties-form/parties-form.html'
 })
 
-export class PartiesForm { 
+export class PartiesForm {
 	partiesForm: ControlGroup;
 
 	constructor() {
 		var fb = new FormBuilder();
-		
+
 		this.partiesForm = fb.group({
 			name: ['', Validators.required],
 			description: [''],
@@ -23,7 +23,7 @@ export class PartiesForm {
 		});
 	}
 
-	addParty(party) {
+	addParty(party: Party) {
 		if (this.partiesForm.valid) {
 			console.log("Form is valid");
 			Parties.insert({
@@ -33,11 +33,11 @@ export class PartiesForm {
 			});
 
 			(<Control>this.partiesForm.controls['name']).updateValue('');
-            		(<Control>this.partiesForm.controls['description']).updateValue('');
-            		(<Control>this.partiesForm.controls['location']).updateValue('');
+      (<Control>this.partiesForm.controls['description']).updateValue('');
+      (<Control>this.partiesForm.controls['location']).updateValue('');
 		} else {
 			console.log("Form not valid.");
 		}
 	}
 
-}	
+}
