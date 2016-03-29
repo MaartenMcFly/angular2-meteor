@@ -1,6 +1,9 @@
 import {Component, View} from 'angular2/core';
 import {FormBuilder, Control, ControlGroup, Validators} from 'angular2/common';
 import {Parties} from 'collections/parties';
+import {MeteorComponent} from 'angular2-meteor';
+import {AccountsUI} from 'meteor-accounts-ui'
+import {InjectUser} from 'meteor-accounts';
 
 @Component({
     selector: 'parties-form'
@@ -10,10 +13,13 @@ import {Parties} from 'collections/parties';
     templateUrl: './client/parties-form/parties-form.html'
 })
 
-export class PartiesForm {
+@InjectUser()
+
+export class PartiesForm extends MeteorComponent{
 	partiesForm: ControlGroup;
 
 	constructor() {
+    super();
 		var fb = new FormBuilder();
 
 		this.partiesForm = fb.group({
@@ -21,17 +27,19 @@ export class PartiesForm {
 			description: [''],
 			location: ['', Validators.required]
 		});
+    console.log(this.user);
 	}
 
 	addParty(party: Party) {
 		if (this.partiesForm.valid) {
-			console.log("Form is valid");
-			Parties.insert({
-				name: party.name,
-				description: party.description,
-				location: party.location
-			});
-
+      if (Meteor.userId()) {
+		    Parties.insert({
+				  name: party.name,
+				  description: party.description,
+				  location: party.location,
+          owner: Meteor.userId()
+			  });
+      }
 			(<Control>this.partiesForm.controls['name']).updateValue('');
       (<Control>this.partiesForm.controls['description']).updateValue('');
       (<Control>this.partiesForm.controls['location']).updateValue('');

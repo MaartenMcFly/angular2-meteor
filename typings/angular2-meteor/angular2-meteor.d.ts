@@ -1,4 +1,4 @@
-/// <reference path="../angular2/angular2.d.ts" />
+/// <reference path="../main.d.ts" />
 
 declare module "angular2-meteor" {
   import * as core from 'angular2/core';

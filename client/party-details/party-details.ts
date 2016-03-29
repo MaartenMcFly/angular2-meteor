@@ -18,12 +18,16 @@ export class PartyDetails {
 	}
 
 	saveParty(party: Party) {
-		Parties.update(party._id, {
-			$set: {
-				name: party.name,
-				description: party.description,
-				location: party.location
-			}
-		});
+    if (Meteor.userId()) {
+  		Parties.update(party._id, {
+  			$set: {
+  				name: party.name,
+  				description: party.description,
+  				location: party.location
+  			}
+  		});
+    } else {
+      alert('Please log in to change this party');
+    }
 	}
 }
