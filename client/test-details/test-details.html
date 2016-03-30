@@ -1,0 +1,9 @@
+<div>
+Measurements!
+<canvas id="myChart" chart width="400" height="400"></canvas>
+  <ul>
+    <li *ngFor="#measurement of measurements">
+      <p>{{measurement.testTimestamp}} {{measurement.testDuration}}</p>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  Tests:
+  <ul>
+    <li *ngFor="#test of tests">
+      <a [routerLink]="['/TestDetails', {testName: test.name}]">{{test.name}}</a>
+    </li>
+  </ul>
+</div>

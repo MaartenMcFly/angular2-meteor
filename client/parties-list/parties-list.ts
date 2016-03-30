@@ -3,6 +3,7 @@ import {Parties} from 'collections/parties';
 import {PartiesForm} from 'client/parties-form/parties-form';
 import {RouterLink} from 'angular2/router';
 import {AccountsUI} from 'meteor-accounts-ui';
+import {MeteorComponent} from 'angular2-meteor';
 
 @Component({
     selector: 'parties-list'
@@ -11,11 +12,14 @@ import {AccountsUI} from 'meteor-accounts-ui';
     templateUrl: '/client/parties-list/parties-list.html',
     directives: [PartiesForm, RouterLink, AccountsUI]
 })
-export class PartiesList {
+export class PartiesList extends MeteorComponent{
     parties: Mongo.Cursor<Party>;
 
     constructor() {
-        this.parties = Parties.find();
+        super();
+        this.subscribe('parties', () => {
+          this.parties = Parties.find();
+        }, true);
     }
 
     removeParty(party: Party) {

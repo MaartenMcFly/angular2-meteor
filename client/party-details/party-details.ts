@@ -1,6 +1,7 @@
 import {Component, View} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 import {Parties} from 'collections/parties';
+import {MeteorComponent} from 'angular2-meteor';
 
 @Component({
   selector: 'party-details'
@@ -9,12 +10,17 @@ import {Parties} from 'collections/parties';
   templateUrl: '/client/party-details/party-details.html',
   directives: [ROUTER_DIRECTIVES]
 })
-export class PartyDetails {
+
+export class PartyDetails extends MeteorComponent {
 	party: Party;
 
 	constructor(params: RouteParams) {
+    super();
 		var partyId = params.get('partyId');
-		this.party = Parties.findOne(partyId);
+    console.log(partyId);
+		this.subscribe('party', partyId, () => {
+      this.party = Parties.findOne(partyId);
+    }, true);
 	}
 
 	saveParty(party: Party) {
