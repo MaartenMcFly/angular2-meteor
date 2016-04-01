@@ -5,6 +5,7 @@ import {PartiesList} from 'client/parties-list/parties-list';
 import {TestsList} from 'client/tests-list/tests-list';
 import {PartyDetails} from 'client/party-details/party-details';
 import {TestDetails} from 'client/test-details/test-details';
+import {ChartDirective} from './chart.directive';
 
 @Component({
     selector: 'app'

@@ -20,6 +20,7 @@ boilerplate-generator@1.0.6
 caching-compiler@1.0.2
 caching-html-compiler@1.0.4
 callback-hook@1.0.6
+chart:chart@1.0.1-beta.4
 check@1.1.2
 ddp@1.2.3
 ddp-client@1.2.3
@@ -31,7 +32,6 @@ diff-sequence@1.0.3
 ecmascript@0.4.1
 ecmascript-runtime@0.2.8
 ejson@1.0.9
-em0ney:chartjs@1.0.2
 email@1.0.10
 es5-shim@4.5.8
 fastclick@1.0.9

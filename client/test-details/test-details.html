@@ -1,6 +1,12 @@
+
+<base-chart class="chart"
+                [data]="lineChartData"
+		            [chartType]="lineChartType"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"></base-chart>
+                <canvas id="myChart" width="400" height="400"></canvas>
 <div>
 Measurements!
-<canvas id="myChart" chart width="400" height="400"></canvas>
   <ul>
     <li *ngFor="#measurement of measurements">
       <p>{{measurement.testTimestamp}} {{measurement.testDuration}}</p>
